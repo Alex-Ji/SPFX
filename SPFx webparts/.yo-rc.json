@@ -1,0 +1,10 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "version": "1.6.0",
+    "libraryName": "sp-fx-webparts",
+    "libraryId": "ad1d3c80-610d-43bf-a17a-8f164e12ca59",
+    "environment": "spo",
+    "packageManager": "npm",
+    "isCreatingSolution": true
+  }
+}
