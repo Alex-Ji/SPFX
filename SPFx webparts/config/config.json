@@ -11,7 +11,9 @@
       ]
     }
   },
-  "externals": {},
+  "externals": {
+    "jquery": "https://code.jquery.com/jquery-1.11.1.min.js",
+  },
   "localizedResources": {
     "CarouselFrameworkWebPartStrings": "lib/webparts/carouselFramework/loc/{locale}.js"
   }

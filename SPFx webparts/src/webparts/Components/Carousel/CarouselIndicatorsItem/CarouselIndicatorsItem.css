@@ -1,0 +1,18 @@
+.acsCarouselIndicatorsItem{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 1px;
+    text-indent: -999px;
+    cursor: pointer;
+    background-color: black;
+    border: 1px solid #fff;
+    border-radius: 10px;
+}
+
+.acsCarouselIndicatorsItem.active{
+    width: 12px;
+    height: 12px;
+    margin: 0;
+    background-color:black;
+}
