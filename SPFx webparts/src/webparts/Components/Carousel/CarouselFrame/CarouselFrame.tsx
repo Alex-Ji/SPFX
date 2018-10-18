@@ -11,31 +11,33 @@ export interface ICarouselFrameState {
 export default class CarouselFrame extends React.Component<ICarouselFrameProps, ICarouselFrameState> {
     private innerContent: React.ReactElement<any>[] = new Array();
     private indicatorsContent: React.ReactElement<any>[] = new Array();
+    private targetId = '';
     constructor(props: ICarouselFrameProps, state: ICarouselFrameState) {
         super(props);
+        this.targetId = "#" + this.props.uniqueId;
     }
 
     public componentDidMount() {
         if (this.props.interval > 0) {
-            $(this.props.IdKey).carousel({
+            $(this.targetId).carousel({
                 interval: (this.props.interval * 1000)
             });
         }
     }
 
-    private _itemCarouselIndicators() {
+    private _getCarouselIndicators() {
         this.indicatorsContent = new Array();
         this.props.indicatorsContent.forEach((item, index) => {
             if (index == 0) {
-                this.indicatorsContent.push(React.cloneElement(item, { 'data-target': "#" + this.props.IdKey, 'data-slide-to': index, isActive: true }));
+                this.indicatorsContent.push(React.cloneElement(item, { 'data-target': this.targetId, 'data-slide-to': index, isActive: true }));
             }
             else {
-                this.indicatorsContent.push(React.cloneElement(item, { 'data-target': "#" + this.props.IdKey, 'data-slide-to': index }));
+                this.indicatorsContent.push(React.cloneElement(item, { 'data-target': this.targetId, 'data-slide-to': index }));
             }
         });
     }
 
-    private _itemSlideWrapper() {
+    private _getCarouselContent() {
         this.innerContent = new Array();
         this.props.innerContent.forEach((item, index) => {
             if (index == 0) {
@@ -48,19 +50,19 @@ export default class CarouselFrame extends React.Component<ICarouselFrameProps, 
     }
 
     public render(): React.ReactElement<any> {
-        this._itemCarouselIndicators();
-        this._itemSlideWrapper();
+        this._getCarouselIndicators();
+        this._getCarouselContent();
         let carouselControls = new Array();
         if (this.props.hasCarouselControl) {
-            carouselControls.push(React.createElement('a', { className: 'carousel-control left', href: "#", 'data-slide': "prev" }, null));
-            carouselControls.push(React.createElement('a', { className: 'carousel-control right', href: "#", 'data-slide': "next" }, null));
-            return React.createElement('div', { className: 'carousel slide', id: this.props.IdKey, 'data-ride': 'carousel' },
+            carouselControls.push(React.createElement('a', { className: 'carousel-control left', href: this.targetId, 'data-slide': "prev" }, null));
+            carouselControls.push(React.createElement('a', { className: 'carousel-control right', href: this.targetId, 'data-slide': "next" }, null));
+            return React.createElement('div', { className: 'carousel slide', id: this.props.uniqueId, 'data-ride': 'carousel' },
                 React.createElement('ol', { className: 'carousel-indicators' }, this.indicatorsContent),
                 React.createElement('div', { className: 'carousel-inner', role: "listbox" }, this.innerContent),
                 carouselControls);
         }
         else {
-            return React.createElement('div', { className: 'carousel slide', id: this.props.IdKey, 'data-ride': 'carousel' },
+            return React.createElement('div', { className: 'carousel slide', id: this.props.uniqueId, 'data-ride': 'carousel' },
                 React.createElement('ol', { className: 'carousel-indicators' }, this.indicatorsContent),
                 React.createElement('div', { className: 'carousel-inner', role: "listbox" }, this.innerContent));
         }

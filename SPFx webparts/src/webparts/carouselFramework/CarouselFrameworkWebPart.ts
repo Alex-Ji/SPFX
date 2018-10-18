@@ -25,7 +25,7 @@ export default class CarouselFrameworkWebPart extends BaseClientSideWebPart<ICar
     const element: React.ReactElement<ICarouselFrameworkProps> = React.createElement(
       CarouselFramework,
       {
-        IdKey: "acs-carousel-" + this.properties.description,
+        uniqueId: "acs-carousel-" + this.properties.description,
         ContentItems: this.contentItems,
         Indicators: this.indicatorItems,
       }
