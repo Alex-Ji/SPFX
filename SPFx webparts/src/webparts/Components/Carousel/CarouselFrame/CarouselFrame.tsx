@@ -2,7 +2,7 @@ import * as React from 'react';
 import { ICarouselFrameProps } from '../ICarouselFrameProps';
 import 'jquery';
 var $: any = (window as any).$;
-import './carousel.js';
+import '../carousel.js';
 import './carousel.css';
 
 export interface ICarouselFrameState {
