@@ -10,7 +10,7 @@ export interface ICarouselFrameState {
 
 export default class CarouselFrame extends React.Component<ICarouselFrameProps, ICarouselFrameState> {
     private innerContent: React.ReactElement<any>[] = new Array();
-    private indicatorsContent: React.ReactElement<any>[] = new Array();
+    private innerindicator: React.ReactElement<any>[] = new Array();
     private targetId = '';
     constructor(props: ICarouselFrameProps, state: ICarouselFrameState) {
         super(props);
@@ -26,13 +26,13 @@ export default class CarouselFrame extends React.Component<ICarouselFrameProps, 
     }
 
     private _getCarouselIndicators() {
-        this.indicatorsContent = new Array();
+        this.innerindicator = new Array();
         this.props.indicatorsContent.forEach((item, index) => {
             if (index == 0) {
-                this.indicatorsContent.push(React.cloneElement(item, { 'data-target': this.targetId, 'data-slide-to': index, isActive: true }));
+                this.innerindicator.push(React.cloneElement(item, { 'data-target': this.targetId, 'data-slide-to': index, isActive: true }));
             }
             else {
-                this.indicatorsContent.push(React.cloneElement(item, { 'data-target': this.targetId, 'data-slide-to': index }));
+                this.innerindicator.push(React.cloneElement(item, { 'data-target': this.targetId, 'data-slide-to': index }));
             }
         });
     }
@@ -57,13 +57,13 @@ export default class CarouselFrame extends React.Component<ICarouselFrameProps, 
             carouselControls.push(React.createElement('a', { className: 'carousel-control left', href: this.targetId, 'data-slide': "prev" }, null));
             carouselControls.push(React.createElement('a', { className: 'carousel-control right', href: this.targetId, 'data-slide': "next" }, null));
             return React.createElement('div', { className: 'carousel slide', id: this.props.uniqueId, 'data-ride': 'carousel' },
-                React.createElement('ol', { className: 'carousel-indicators' }, this.indicatorsContent),
+                React.createElement('ol', { className: 'carousel-indicators' }, this.innerindicator),
                 React.createElement('div', { className: 'carousel-inner', role: "listbox" }, this.innerContent),
                 carouselControls);
         }
         else {
             return React.createElement('div', { className: 'carousel slide', id: this.props.uniqueId, 'data-ride': 'carousel' },
-                React.createElement('ol', { className: 'carousel-indicators' }, this.indicatorsContent),
+                React.createElement('ol', { className: 'carousel-indicators' }, this.innerindicator),
                 React.createElement('div', { className: 'carousel-inner', role: "listbox" }, this.innerContent));
         }
     }
