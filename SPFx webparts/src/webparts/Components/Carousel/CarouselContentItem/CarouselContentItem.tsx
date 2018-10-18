@@ -1,7 +1,7 @@
 import * as React from 'react';
-
+import styles from './CarouselContentItem.module.scss';
 export interface IcarouselContentItem {
-    src: string
+    src: string;
 }
 
 export default class carouselContentItem extends React.Component<IcarouselContentItem, any> {
@@ -10,6 +10,6 @@ export default class carouselContentItem extends React.Component<IcarouselConten
     }
 
     public render(): React.ReactElement<any> {
-        return <img src={this.props.src} />;
+        return <img className={styles.img} src={this.props.src} />;
     }
 }
