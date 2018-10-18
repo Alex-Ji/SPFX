@@ -1,3 +1,5 @@
 export interface ICarouselFrameworkProps {
-  description: string;
+  IdKey: string;
+  ContentItems: React.ReactElement<any>[];
+  Indicators: React.ReactElement<any>[];
 }

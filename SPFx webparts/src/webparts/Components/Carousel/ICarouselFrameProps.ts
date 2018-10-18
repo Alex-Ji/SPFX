@@ -3,6 +3,7 @@ export interface ICarouselFrameProps {
     indicatorsContent: React.ReactElement<any>[] | null;
     hasCarouselControl: boolean;
     interval: number;
+    IdKey: string;
 }
 
 export interface ICarouselIndicatorsItem {

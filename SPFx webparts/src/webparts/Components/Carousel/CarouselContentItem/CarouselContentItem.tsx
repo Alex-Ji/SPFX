@@ -1,9 +1,8 @@
 import * as React from 'react';
 
 export interface IcarouselContentItem {
-
+    src: string
 }
-
 
 export default class carouselContentItem extends React.Component<IcarouselContentItem, any> {
     constructor(props: IcarouselContentItem, state: any) {
@@ -11,6 +10,6 @@ export default class carouselContentItem extends React.Component<IcarouselConten
     }
 
     public render(): React.ReactElement<any> {
-        return React.createElement('div', null, null);
+        return <img src={this.props.src} />;
     }
 }
