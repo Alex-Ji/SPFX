@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { ICarouselIndicatorsItem } from '../ICarouselFrameProps';
-import './carouselIndicatorsItem.css';
-export default class carouselIndicatorsItem extends React.Component<ICarouselIndicatorsItem, any> {
-    constructor(props: ICarouselIndicatorsItem, state: any) {
+import { ICarouselIndicatorItem } from '../ICarouselFrameProps';
+import './carouselIndicatorItem.css';
+export default class carouselIndicatorItem extends React.Component<ICarouselIndicatorItem, any> {
+    constructor(props: ICarouselIndicatorItem, state: any) {
         super(props);
     }
 

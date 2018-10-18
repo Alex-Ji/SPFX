@@ -6,6 +6,6 @@ export interface ICarouselFrameProps {
     IdKey: string;
 }
 
-export interface ICarouselIndicatorsItem {
+export interface ICarouselIndicatorItem {
     isActive: boolean;
 }

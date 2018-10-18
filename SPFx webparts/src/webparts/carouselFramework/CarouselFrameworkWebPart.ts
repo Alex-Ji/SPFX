@@ -11,7 +11,7 @@ import * as strings from 'CarouselFrameworkWebPartStrings';
 import CarouselFramework from './components/CarouselFramework';
 import { ICarouselFrameworkProps } from './components/ICarouselFrameworkProps';
 import carouselContentItem from '../Components/Carousel/CarouselContentItem/CarouselContentItem';
-import carouselIndicatorsItem from '../Components/Carousel/CarouselIndicatorsItem/CarouselIndicatorsItem'
+import carouselIndicatorsItem from '../Components/Carousel/CarouselIndicatorItem/CarouselIndicatorItem'
 export interface ICarouselFrameworkWebPartProps {
   description: string;
 }
